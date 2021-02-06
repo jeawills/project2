@@ -13,7 +13,8 @@
   <body>
     <!--Start of Nav Bar-->  
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">TEAM LOGIC</a>
+      <img src="C:\Users\Jeawills\Desktop\Homework\project2\logo.jpg" class="img-logo" alt="..."><br> 
+      <a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,19 +24,21 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Maps</a>
+            <a class="nav-link" href="maps.html">Maps</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Data</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown link
+              Options
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="#">Income/Expenditures</a>
+              <a class="dropdown-item" href="#">Home Prices</a>
+              <a class="dropdown-item" href="#">Crime Rate</a>
+              <a class="dropdown-item" href="#">School Rating</a>
+              <a class="dropdown-item" href="#">Reviews</a>
             </div>
           </li>
         </ul>
@@ -52,7 +55,7 @@
           <div class="row">
             <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 
-            <div class="col-6"><input type="search" id="city" class="form-control" placeholder="In which city do you live?" />
+            <div class="col-5"><input type="search" id="city" class="form-control" placeholder="In which city do you live?" />
 
               <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
               <script>
@@ -74,7 +77,7 @@
               </script>
             </div>
             <!--End of search for city 1 and start of search for city 2-->
-            <div class="col-6"><input type="search" id="city" class="form-control" placeholder="In which city do you live?" />
+            <div class="col-5"><input type="search" id="city" class="form-control" placeholder="In which city do you live?" />
 
               <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
               <script>
@@ -95,6 +98,14 @@
               })();
               </script>
               </div>
+                <div class="col-2">
+                <select class="custom-select" multiple>
+                <option selected>Select Option</option>
+                <option value="1">Income/Expenditure</option>
+                <option value="2">Home Prices</option>
+                <option value="3">Crime Rate</option>
+                <option value="3">School Rating</option>
+              </select> </div>
           </div>
         </div>
       </div>
