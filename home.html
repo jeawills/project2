@@ -1,14 +1,24 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+  <!--scripts for meta tags and autocomplete-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>County Comparator</title> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/token-input.css" />
+  <!-- end of Meta tags and autocomplete-->
+
+   <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <title>City Comparator!</title>
+    
   </head>
   <body>
     <!--Start of Nav Bar-->  
@@ -45,60 +55,68 @@
       </div>
     </nav>
     <!--End of Nav Bar-->
-    <!--start of jumbotron code-->
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
+    <!--Start of Jumbotron-->
+     <!--start of jumbotron code-->
+     <div class="jumbotron jumbotron-fluid">
+      <div class="container fluid">
         <h1 class="display-4 text-dark">City Comparator</h1>
         <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
         <div class="container fluid">
-          <!--Start of search for city 1-->
-          <div class="row">
-            <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+          <!--Start of autocpmplete search -->
+          
+          <?php
+          if(isset($_POST['submit'])){
+              // Get selected counties
+              $selected_counties_ids = $_POST['county_input'];
+          
+          echo $selected_counties_ids;
+          }
+          ?>
 
-            <div class="col-5"><input type="search" id="city" class="form-control" placeholder="In which city do you live?" />
-
-              <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-              <script>
-              (function() {
-                var placesAutocomplete = places({
-                  appId: '<YOUR_PLACES_APP_ID>',
-                  apiKey: '<YOUR_PLACES_API_KEY>',
-                  container: document.querySelector('#city'),
-                  templates: {
-                    value: function(suggestion) {
-                      return suggestion.name;
-                    }
-                  }
-                }).configure({
-                  type: 'city',
-                  aroundLatLngViaIP: false,
-                });
-              })();
-              </script>
-            </div>
-            <!--End of search for city 1 and start of search for city 2-->
-            <div class="col-5"><input type="search" id="city" class="form-control" placeholder="In which city do you live?" />
-
-              <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-              <script>
-              (function() {
-                var placesAutocomplete = places({
-                  appId: '<YOUR_PLACES_APP_ID>',
-                  apiKey: '<YOUR_PLACES_API_KEY>',
-                  container: document.querySelector('#city'),
-                  templates: {
-                    value: function(suggestion) {
-                      return suggestion.name;
-                    }
-                  }
-                }).configure({
-                  type: 'city',
-                  aroundLatLngViaIP: false,
-                });
-              })();
-              </script>
-              </div>
-                <div class="col-2">
+        <div class="row">
+          <div class="col-9">
+            <form method="post" action="">
+              <p><h4>Select Two Counties</h4></p>
+              <input type="text" name="county_input" id="county_input" class="form-control"/><br/>
+              <input type="submit" name="submit" value="SUBMIT" class="btn btn-success">
+            </form>
+          </div>
+      <!-- Tokeninput plugin library -->
+        <script src="js/jquery.tokeninput.js"></script>
+        <script>
+        var counties = [
+          {id: 0, name: "Autauga, AL"}, 
+          {id: 1, name: "Baldwin, AL"},
+          {id: 2, name: "Barbour, AL"},
+          {id: 3, name: "Bibb, AL"},
+          {id: 4, name: "Blount, AL"},
+          {id: 5, name: "Bullock, AL"},
+          {id: 6, name: "Butler, AL"},
+          {id: 7, name: "Calhoun, AL"},
+          {id: 8, name: "Chambers, AL"},
+          {id: 9, name: "Cherokee, AL"},
+          {id: 10, name: "Chilton, AL"}, 
+          {id: 11, name: "Choctaw, AL"},
+          {id: 12, name: "Clarke, AL"},
+          {id: 13, name: "Clay, AL"},
+          {id: 14, name: "Cleburne, AL"},
+          {id: 15, name: "Coffee, AL"},
+          {id: 16, name: "Colbert, AL"},
+          {id: 17, name: "Conecuh, AL"},
+          {id: 18, name: "Coosa, AL"},
+          {id: 19, name: "Covington, AL"},
+          {id: 20, name: "Crenshaw, AL"},
+          {id: 21, name: "Cullman, AL"},
+          {id: 22, name:"Dale, AL"}
+          
+        ];
+        $(document).ready(function() {
+            $("#county_input").tokenInput(counties);
+        });
+        </script>
+           
+              
+                <div class="col-3">
                 <select class="custom-select" multiple>
                 <option selected>Select Option</option>
                 <option value="1">Income/Expenditure</option>
@@ -110,7 +128,7 @@
         </div>
       </div>
     </div>
-    <!--end of jumbotron code and search for city 2-->
+    <!--end of jumbotron code and autocomplete search-->
     <!--Start of container div-->
   <div class="container fluid">
     <div class="row">
@@ -134,19 +152,5 @@
       </div></div>
     </div>
   </div>
-
-  
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-    -->
-  </body>
+ </body>
 </html>
