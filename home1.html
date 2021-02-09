@@ -59,9 +59,9 @@
      <!--start of jumbotron code-->
      <div class="jumbotron jumbotron-fluid">
       <div class="container fluid">
-        <h1 class="display-4 text-dark">City Comparator</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-        <div class="container">
+        <h1 class="display-4 text-dark">County Comparator</h1>
+        <p class="lead">Your guide for your next Big Move</p>
+        <div class="container fluid">
           <!--Start of autocpmplete search -->
           
           <?php
@@ -74,7 +74,7 @@
           ?>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-9">
             <form method="post" action="">
               <p><h4>Select Two Counties</h4></p>
               <input type="text" name="county_input" id="county_input" class="form-control"/><br/>
@@ -83,39 +83,11 @@
           </div>
       <!-- Tokeninput plugin library -->
         <script src="js/jquery.tokeninput.js"></script>
-        <script>
-        var counties = [
-          {id: 0, name: "Autauga, AL"}, 
-          {id: 1, name: "Baldwin, AL"},
-          {id: 2, name: "Barbour, AL"},
-          {id: 3, name: "Bibb, AL"},
-          {id: 4, name: "Blount, AL"},
-          {id: 5, name: "Bullock, AL"},
-          {id: 6, name: "Butler, AL"},
-          {id: 7, name: "Calhoun, AL"},
-          {id: 8, name: "Chambers, AL"},
-          {id: 9, name: "Cherokee, AL"},
-          {id: 10, name: "Chilton, AL"}, 
-          {id: 11, name: "Choctaw, AL"},
-          {id: 12, name: "Clarke, AL"},
-          {id: 13, name: "Clay, AL"},
-          {id: 14, name: "Cleburne, AL"},
-          {id: 15, name: "Coffee, AL"},
-          {id: 16, name: "Colbert, AL"},
-          {id: 17, name: "Conecuh, AL"},
-          {id: 18, name: "Coosa, AL"},
-          {id: 19, name: "Covington, AL"},
-          {id: 20, name: "Crenshaw, AL"},
-          {id: 21, name: "Cullman, AL"},
-          {id: 22, name:"Dale, AL"}
-          
-        ];
-        $(document).ready(function() {
-            $("#county_input").tokenInput(counties);
-        });
-        </script>
-          <div class="col-3">
-              <select class="custom-select" multiple>
+        <script>src="js/counties.js"</script>
+           
+              
+                <div class="col-3">
+                <select class="custom-select" multiple>
                 <option selected>Select Option</option>
                 <option value="1">Income/Expenditure</option>
                 <option value="2">Home Prices</option>
