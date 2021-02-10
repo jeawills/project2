@@ -3139,6 +3139,3 @@ var counties = [
 {id: 3137, name: "Weston, WY"}
 
 ];
-$(document).ready(function() {
-    $("#county_input").tokenInput(counties);
-});

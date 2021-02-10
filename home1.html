@@ -83,9 +83,12 @@
           </div>
       <!-- Tokeninput plugin library -->
         <script src="js/jquery.tokeninput.js"></script>
-        <script>src="js/counties.js"</script>
-           
-              
+        <script src="js/counties.js"></script>
+        <script> var counties = counties
+       $(document).ready(function() {
+          $("#county_input").tokenInput(counties);
+        });
+        </script>     
                 <div class="col-3">
                 <select class="custom-select" multiple>
                 <option selected>Select Option</option>
